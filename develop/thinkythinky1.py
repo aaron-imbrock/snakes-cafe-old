@@ -1,4 +1,7 @@
 
+from sys import exit
+from textwrap import dedent
+
 class Menu(object):
     def __init__(self):
         self.appetizers = ['Appetizers','----------','Wings', 'Cookies', 'Spring Rolls']
@@ -18,34 +21,39 @@ class Menu(object):
     
     def print_menu(self):
         intro = f'''
-**************************************
-**    Welcome to the Snakes Cafe!   **
-**    Please see our menu below.    **
-**                                  **
-** To quit at any time, type "quit" **
-**************************************
-'''
-        print(intro)
+        **************************************
+        **    Welcome to the Snakes Cafe!   **
+        **    Please see our menu below.    **
+        **                                  **
+        ** To quit at any time, type "quit" **
+        **************************************
+        '''
+        print(dedent(intro))
         self._print_list(self.appetizers)
         self._print_list(self.entrees)
         self._print_list(self.desserts)
         self._print_list(self.drinks)
 
-class Order:
+class Order():
     def __init__(self):
+        self.menu = Menu()
         self.prompt = '> '
         self.order_prompt = f'''
-***********************************
-** What would you like to order? **
-***********************************
-{self.prompt}'''
+        ***********************************
+        ** What would you like to order? **
+        ***********************************
+        {self.prompt}'''
 
-        order = {}
+        self.order = {}
+
     def print_intro(self):
-        print(self.order_prompt)
+        print(dedent(self.order_prompt))
 
-    def add_to_order():
-        pass
+    def take_order(self, item):
+        if menu.is_on_menu(item):
+            print("Yes")
+            return
+        print("No")
 
 if __name__ == "__main__":
 
@@ -53,4 +61,5 @@ if __name__ == "__main__":
     order = Order()
     menu.print_menu()
     order.print_intro()
+    order.take_order('Salmon')
 
