@@ -51,6 +51,14 @@ class Order():
 
     def take_order(self, item):
         if menu.is_on_menu(item):
+            # Add item and item count to order{}
+            # dict default(1) if key not already present otherwise increment count +1
+            # if item_count != 1, print({item_count} orders of {item} added to order.
+            # else print({item_count} orders of {item} added to order.
+
+            ## while loop w/ input(self.prompt)
+            ## handle "quit", Ctrl-D, exit()
+
             print("Yes")
             return
         print("No")
